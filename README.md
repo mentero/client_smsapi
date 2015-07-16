@@ -20,6 +20,20 @@ Or install it yourself as:
 
     $ gem install client_smsapi
 
+## Configuration
+
+The client needs your credentials. Configure them!
+
+```ruby
+SMSApi.configure do |config|
+  config.username = 'what_a_username'
+  config.secret   = 'what_a_secret'
+end
+```
+
+Rails users are recommended to put this code into initializer file such as `config/initializers/smsapi.rb`
+
+
 ## Usage
 
 TODO: Write usage instructions here
@@ -33,4 +47,3 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/client_smsapi.
-
