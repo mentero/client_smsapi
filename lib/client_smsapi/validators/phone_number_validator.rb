@@ -11,7 +11,7 @@ module SMSApi
       end
 
       def valid?
-        true
+        !!number.to_s.match(/^(48)?(\d){9}$/)
       end
     end
   end

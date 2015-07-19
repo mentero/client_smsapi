@@ -26,7 +26,7 @@ RSpec.describe SMSApi::Validators::PhoneNumberValidator do
   end
 
   it 'does not work for invalid numbers' do
-    valid_numbers.each do |number|
+    invalid_numbers.each do |number|
       result = SMSApi::Validators::PhoneNumberValidator.valid_number?(number)
       expect(result).to be(false)
     end
