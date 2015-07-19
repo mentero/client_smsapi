@@ -1,0 +1,1 @@
+require_relative 'validators/phone_number_validator'

@@ -1,5 +1,8 @@
 require 'client_smsapi/version'
 require 'client_smsapi/configuration'
+require 'client_smsapi/validators'
+
+require 'client_smsapi/sms'
 
 module SMSApi
   class << self
