@@ -12,15 +12,17 @@ module SMSApi
         @test_mode = test_mode
       end
 
-      def send_message
+      def send_message(message)
         unless test_mode
-          response = send_real_message
+          response = send_real_message(message)
         else
-          response = send_test_message
+          response = send_test_message(message)
         end
 
         parse_response(response)
       end
+
+      private
 
       def parse_response(response)
         if response.body.start_with?('OK:')
@@ -33,21 +35,23 @@ module SMSApi
         end
       end
 
-      def send_real_message
+      def send_real_message(message)
+        params = to_request_hash(message)
         self.class.post('/sms.do', query: params)
       end
 
-      def send_test_message
+      def send_test_message(message)
+        params = to_request_hash(message)
         self.class.post('/sms.do', query: params.merge(test: 1))
       end
 
-      def params
+      def to_request_hash(message)
         {
           username: SMSApi.configuration.username,
           password: SMSApi.configuration.password,
           from: 'Eco',
-          to: 48_505_735_444,
-          message: 'Test'
+          to: message.recipient,
+          message: message.body
         }
       end
     end

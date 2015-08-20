@@ -1,15 +1,15 @@
 module SMSApi
   module SMS
     class Message
-      attr_reader :recipient, :message
+      attr_reader :recipient, :body
 
-      def initialize(recipient:, message:)
+      def initialize(recipient:, body:)
         @recipient = recipient
-        @message   = message
+        @body      = body
       end
 
       def valid?
-        true
+        Validators::PhoneNumberValidator.valid_number?(recipient)
       end
     end
   end

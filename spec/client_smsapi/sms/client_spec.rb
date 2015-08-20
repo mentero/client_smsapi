@@ -1,16 +1,28 @@
 RSpec.describe SMSApi::SMS::Client do
   subject { described_class.new(test_mode: true) }
 
-  before(:all) do
-    SMSApi.configure do |config|
-      config.username = 'xmentero@gmail.com'
-      config.password = '22071cbad7dbb5d086984fb1d58958b3'
-    end
+  it 'holds serverlist' do
+    expect(SMSApi::SMS::Client::SERVERS).to be_a(Array)
   end
 
-  after(:all) { SMSApi.reset }
+  it 'we have 2 servers for now' do
+    expect(SMSApi::SMS::Client::SERVERS.count).to eq(2)
+  end
 
-  it 'sends sms' do
-    subject.send_message
+  describe '.send_message' do
+    let(:message) { SMSApi::SMS::Message.new(recipient: 48_702_702_702, body: '') }
+
+    before(:all) do
+      SMSApi.configure do |config|
+        config.username = 'xmentero@gmail.com'
+        config.password = '22071cbad7dbb5d086984fb1d58958b3'
+      end
+    end
+
+    after(:all) { SMSApi.reset }
+
+    it 'sends sms' do
+      subject.send_message(message)
+    end
   end
 end
