@@ -10,7 +10,7 @@ RSpec.describe SMSApi::SMS::Client do
   end
 
   describe '.send_message' do
-    let(:message) { SMSApi::SMS::Message.new(recipient: 48_702_702_702, body: '') }
+    let(:message) { SMSApi::SMS::Message.new(recipient: 48_505_735_444, body: 'test') }
 
     before(:all) do
       SMSApi.configure do |config|
@@ -22,6 +22,7 @@ RSpec.describe SMSApi::SMS::Client do
     after(:all) { SMSApi.reset }
 
     it 'sends sms' do
+      binding.pry
       subject.send_message(message)
     end
   end

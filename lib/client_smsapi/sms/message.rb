@@ -9,7 +9,10 @@ module SMSApi
       end
 
       def valid?
-        Validators::PhoneNumberValidator.valid_number?(recipient)
+        @valid ||= begin
+          Validators::MessageBodyValidator.valid_body?(body)
+          Validators::PhoneNumberValidator.valid_number?(recipient)
+        end
       end
     end
   end

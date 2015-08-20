@@ -26,7 +26,7 @@ module SMSApi
 
       def parse_response(response)
         if response.body.start_with?('OK:')
-          'OK'
+          SMSApi::SMS::Response.new(*response.split(':'))
         elsif response.body.start_with?('ERROR:')
           code = response.body.match(/ERROR:(?<code>.*)/)[:code].to_i
           SMSApi::SMS::Error.new(code)
@@ -50,7 +50,7 @@ module SMSApi
           username: SMSApi.configuration.username,
           password: SMSApi.configuration.password,
           from: 'Eco',
-          to: message.recipient,
+          to: message.recipient.to_s,
           message: message.body
         }
       end

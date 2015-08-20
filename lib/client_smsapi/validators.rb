@@ -1,1 +1,2 @@
 require_relative 'validators/phone_number_validator'
+require_relative 'validators/message_body_validator'
