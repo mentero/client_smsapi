@@ -4,17 +4,17 @@ RSpec.describe SMSApi do
 
     it 'is empty be default' do
       expect(SMSApi.configuration.username).to be(nil)
-      expect(SMSApi.configuration.secret).to be(nil)
+      expect(SMSApi.configuration.password).to be(nil)
     end
 
     it 'holds settings' do
       SMSApi.configure do |config|
         config.username = 'what_a_username'
-        config.secret   = 'what_a_secret'
+        config.password = 'what_a_secret'
       end
 
       expect(SMSApi.configuration.username).to eq('what_a_username')
-      expect(SMSApi.configuration.secret).to eq('what_a_secret')
+      expect(SMSApi.configuration.password).to eq('what_a_secret')
     end
   end
 
@@ -22,13 +22,13 @@ RSpec.describe SMSApi do
     it 'resets configuration' do
       SMSApi.configure do |config|
         config.username = 'what_a_username'
-        config.secret   = 'what_a_secret'
+        config.password = 'what_a_secret'
       end
 
       SMSApi.reset
 
       expect(SMSApi.configuration.username).to be(nil)
-      expect(SMSApi.configuration.secret).to be(nil)
+      expect(SMSApi.configuration.password).to be(nil)
     end
   end
 

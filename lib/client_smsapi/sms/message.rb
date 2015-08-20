@@ -9,6 +9,7 @@ module SMSApi
       end
 
       def valid?
+        true
       end
     end
   end
