@@ -21,7 +21,7 @@ module SMSApi
 
       def send_message!(message)
         response = send_message(message)
-        fail response if response.is_a? SMSApi::SMS::Error
+        fail response if response.is_a? SMSApi::Error
         response
       end
 
@@ -39,9 +39,9 @@ module SMSApi
           SMSApi::SMS::Response.new(*response.split(':'))
         elsif response.body.start_with?('ERROR:')
           code = response.body.match(/ERROR:(?<code>.*)/)[:code].to_i
-          SMSApi::SMS::Error.new(code)
+          SMSApi::Error.new(code)
         else
-          SMSApi::SMS::Error.new
+          SMSApi::Error.new
         end
       end
 

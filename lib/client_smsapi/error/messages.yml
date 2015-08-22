@@ -1,0 +1,55 @@
+error:
+  8:  Błąd w odwołaniu (Prosimy zgłosić)
+  11: Zbyt długa lub brak wiadomości lub ustawiono parametr nounicode i pojawiły się znaki specjalne w wiadomości. Dla wysyłki VMS błąd oznacza brak pliku WAV lub treści TTS.
+  12: Wiadomość zawiera ponad 160 znaków (gdy użyty parametr &single=1).
+  13: Brak prawidłowych numerów telefonów (numery błędne, znajdujące się na czarnej liście lub zagraniczne przy wyłączonej opcji wysyłki za granicę).
+  14: Nieprawidłowe pole nadawcy.
+  17: Nie można wysłać FLASH ze znakami specjalnymi.
+  18: Nieprawidłowa liczba parametrów.
+  19: Za dużo wiadomości w jednym odwołaniu.
+  20: Nieprawidłowa liczba parametrów IDX.
+  21: Wiadomość MMS ma za duży rozmiar (maksymalnie 300kB).
+  22: Błędny format SMIL.
+  23: Błąd pobierania pliku dla wiadomości MMS lub VMS.
+  24: Błędny format pobieranego pliku.
+  25: Parametry &normalize oraz &datacoding nie mogą być używane jednocześnie.
+  26: Za długi temat wiadomości. Temat może zawierać maksymalnie 30 znaków.
+  27: Parametr IDX za długi. Maksymalnie 255 znaków.
+  30: Brak parametru UDH jak podany jest datacoding=bin.
+  31: Błąd konwersji TTS
+  32: Nie można wysyłać wiadomości Eco, MMS i VMS na zagraniczne numery.
+  33: Brak poprawnych numerów.
+  35: 'Błędna wartość parametru tts_lector. Dostępne wartości: agnieszka, ewa, jacek, jan, maja.'
+  36: Nie można wysyłać wiadomości binarnych z ustawioną stopką.
+  40: Brak grupy o podanej nazwie
+  41: Wybrana grupa jest pusta (brak kontaktów w grupie).
+  50: Nie można zaplanować wysyłki na więcej niż 3 miesiące w przyszłość.
+  51: Ustawiono błędną godzinę wysyłki, wiadomość VMS mogą być wysyłane tylko pomiędzy godzinami 8 a 22 lub ustawiono kombinację parametrów try i interval powodującą możliwość próby połączenia po godzinie 22.
+  52: Za dużo prób wysyłki wiadomości do jednego numeru (maksymalnie 10 prób w przeciągu 60sek do jednego numeru).
+  53: Nieunikalny parametr idx. Wiadomość o podanym idx została wysłana w ostatnich czterech dniach lub jest zaplanowana do wysyłki w przyszłości przy wykorzystaniu parametru &check_idx=1.
+  54: Błędny format daty. Ustawiono sprawdzanie poprawności daty &date_validate=1.
+  55: Brak numerów stacjonarnych w wysyłce i ustawiony parametr skip_gsm.
+  56: Różnica pomiędzy datą wysyłki a datą wygaśnięcia nie może być mniejsza niż 15 minut i większa niż 12 godzin.
+  57: Numer znajduje się na czarnej liście dla danego użytkownika.
+  60: Grupa kodów o podanej nazwie nie istnieje.
+  61: Data ważności grupy kodów minęła.
+  62: Brak wolnych kodów w podanej grupie (wszystkie kody zostały już wykorzystane).
+  65: Brak wystarczającej liczby kodów rabatowych dla wysyłki. Liczba niewykorzystanych kodów w grupie musi być co najmniej równa liczbie numerów w wysyłce.
+  66: W treści wiadomości brak jest znacznika [%kod%] dla wysyłki z parametrem &discount_group (znacznik taki jest wymagany).
+  70: Błędny adres CALLBACK w parametrze notify_url.
+  72: Parametr notify_url może być używany tylko dla odwołań z jednym numerem (nie może być stosowany dla wysyłek masowych).
+  74: Data wysyłki nie spełnia ograniczeń czasowych ustawionych na koncie.
+  75: Brak zaplanowanych wiadomości do usunięcia.
+  101: Niepoprawne lub brak danych autoryzacji. UWAGA! Hasło do API może różnić się od hasła do Panelu Klienta.
+  102: Nieprawidłowy login lub hasło.
+  103: Brak punktów dla tego użytkownika.
+  104: Brak szablonu.
+  105: Błędny adres IP (włączony filtr IP dla interfejsu API).
+  110: Usługa (SMS, MMS, VMS lub HLR) nie jest dostępna na danym koncie.
+  200: Nieudana próba wysłania wiadomości, prosimy ponowić odwołanie.
+  201: Wewnętrzny błąd systemu (prosimy zgłosić).
+  202: Zbyt duża ilość jednoczesnych odwołań do serwisu, wiadomość nie została wysłana (prosimy odwołać się ponownie).
+  300: Nieprawidłowa wartość pola points (przy użyciu pola points jest wymagana wartość 1).
+  301: Wiadomość o podanym ID nie istnieje lub jest zaplanowana do wysłania w przeciągu najbliższych 60 sekund (nie można usunąć takiej wiadomości).
+  400: Nieprawidłowy ID statusu wiadomości.
+  999: Wewnętrzny błąd systemu (prosimy zgłosić).
