@@ -36,7 +36,15 @@ Rails users are recommended to put this code into initializer file such as `conf
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+
+message = SMSApi::SMS::Message.new(recipient: 48505735444, body: 'test')
+SMSApi::SMS::Client.new.send_message!(message)
+#
+# OR
+#
+
+```
 
 ## Development
 

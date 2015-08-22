@@ -12,17 +12,27 @@ module SMSApi
         @test_mode = test_mode
       end
 
-      def send_message(message)
-        unless test_mode
-          response = send_real_message(message)
-        else
-          response = send_test_message(message)
-        end
-
+      def send_message(message, additional_params = {})
+        params = build_params(message, additional_params)
+        puts params
+        response = self.class.post('/sms.do', query: params)
         parse_response(response)
       end
 
+      def send_message!(message)
+        response = send_message(message)
+        fail response if response.is_a? SMSApi::SMS::Error
+        response
+      end
+
       private
+
+      def build_params(message, additional_params)
+        base_params
+          .merge(message.to_params)
+          .merge(extra_params)
+          .merge(additional_params)
+      end
 
       def parse_response(response)
         if response.body.start_with?('OK:')
@@ -35,23 +45,18 @@ module SMSApi
         end
       end
 
-      def send_real_message(message)
-        params = to_request_hash(message)
-        self.class.post('/sms.do', query: params)
+      def extra_params
+        return @extra_params if @extra_params
+
+        @extra_params = {}
+        @extra_params[:test] = 1 if test_mode
+        @extra_params
       end
 
-      def send_test_message(message)
-        params = to_request_hash(message)
-        self.class.post('/sms.do', query: params.merge(test: 1))
-      end
-
-      def to_request_hash(message)
-        {
+      def base_params
+        @base_params ||= {
           username: SMSApi.configuration.username,
-          password: SMSApi.configuration.password,
-          from: 'Eco',
-          to: message.recipient.to_s,
-          message: message.body
+          password: SMSApi.configuration.password
         }
       end
     end
