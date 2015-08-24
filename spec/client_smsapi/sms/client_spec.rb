@@ -22,7 +22,6 @@ RSpec.describe SMSApi::SMS::Client do
     after(:all) { SMSApi.reset }
 
     it 'sends sms' do
-      binding.pry
       subject.send_message(message)
     end
   end

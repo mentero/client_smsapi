@@ -36,12 +36,12 @@ module SMSApi
 
       def parse_response(response)
         if response.body.start_with?('OK:')
-          SMSApi::SMS::Response.new(*response.split(':'))
+          Response::Regular.new(*response.split(':').drop(1))
         elsif response.body.start_with?('ERROR:')
           code = response.body.match(/ERROR:(?<code>.*)/)[:code].to_i
-          SMSApi::Error.new(code)
+          Response::Error.new(code)
         else
-          SMSApi::Error.new
+          Response::Error.new
         end
       end
 
