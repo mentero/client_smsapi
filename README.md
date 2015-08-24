@@ -38,7 +38,7 @@ Rails users are recommended to put this code into initializer file such as `conf
 
 ```ruby
 
-message = SMSApi::SMS::Message.new(recipient: 48505735444, body: 'test')
+message = SMSApi::SMS::Message.new(to: 48505735444, body: 'test')
 SMSApi::SMS::Client.new.send_message!(message)
 #
 # OR

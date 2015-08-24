@@ -1,24 +1,24 @@
 module SMSApi
   module SMS
     class Message
-      attr_reader :recipient, :body
+      attr_reader :to, :body
 
-      def initialize(recipient:, body:)
-        @recipient = recipient
-        @body      = body
+      def initialize(to:, body:)
+        @to   = to
+        @body = body
       end
 
       def valid?
         @valid ||= begin
           Validators::MessageBodyValidator.valid_body?(body)
-          Validators::PhoneNumberValidator.valid_number?(recipient)
+          Validators::PhoneNumberValidator.valid_number?(to)
         end
       end
 
       def to_params
         @params ||= {
           from: 'Eco',
-          to: recipient.to_s,
+          to: to.to_s,
           message: body
         }
       end
