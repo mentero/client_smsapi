@@ -1,10 +1,15 @@
+require_relative 'message/eco'
+require_relative 'message/2way'
+require_relative 'message/pro'
+
 module SMSApi
   module SMS
     class Message
-      attr_reader :to, :body
+      attr_reader :to, :from, :body
 
-      def initialize(to:, body:)
+      def initialize(to:, from:, body:)
         @to   = to
+        @from = from
         @body = body
       end
 
@@ -17,7 +22,7 @@ module SMSApi
 
       def to_params
         @params ||= {
-          from: 'Eco',
+          from: from.to_s,
           to: to.to_s,
           message: body
         }

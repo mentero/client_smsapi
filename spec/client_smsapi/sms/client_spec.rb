@@ -10,7 +10,7 @@ RSpec.describe SMSApi::SMS::Client do
   end
 
   describe '.send_message' do
-    let(:message) { SMSApi::SMS::Message.new(to: 48_505_735_444, body: 'test') }
+    let(:message) { SMSApi::SMS::Message::Eco.new(to: 48_505_735_444, body: 'test') }
 
     before(:all) do
       SMSApi.configure do |config|
