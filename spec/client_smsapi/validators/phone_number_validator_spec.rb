@@ -1,33 +1,29 @@
 RSpec.describe SMSApi::Validators::PhoneNumberValidator do
-  let(:valid_numbers) do
-    [
-      '48123456789',
-      '123456789',
-      48_123_456_789,
-      123_456_789
-    ]
-  end
+  VALID_NUMBERS = [
+    '48123456789',
+    '123456789',
+    48_123_456_789,
+    123_456_789
+  ]
 
-  let(:invalid_numbers) do
-    [
-      '+48123456789',
-      :symbol,
-      'text',
-      '(48)123456789',
-      123.456789
-    ]
-  end
-
-  it 'works for valid numbers' do
-    valid_numbers.each do |number|
-      result = SMSApi::Validators::PhoneNumberValidator.valid_number?(number)
+  VALID_NUMBERS.each do |number|
+    it "#{number} is valid" do
+      result = described_class.valid_number?(number)
       expect(result).to be(true)
     end
   end
 
-  it 'does not work for invalid numbers' do
-    invalid_numbers.each do |number|
-      result = SMSApi::Validators::PhoneNumberValidator.valid_number?(number)
+  INVALID_NUMBERS = [
+    '+48123456789',
+    :symbol,
+    'text',
+    '(48)123456789',
+    123.456789
+  ]
+
+  INVALID_NUMBERS.each do |number|
+    it "#{number} is invalid" do
+      result = described_class.valid_number?(number)
       expect(result).to be(false)
     end
   end

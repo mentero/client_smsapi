@@ -14,7 +14,6 @@ module SMSApi
 
       def send_message(message, additional_params = {})
         params = build_params(message, additional_params)
-        puts params
         response = self.class.post('/sms.do', query: params)
         parse_response(response)
       end
@@ -56,7 +55,8 @@ module SMSApi
       def base_params
         @base_params ||= {
           username: SMSApi.configuration.username,
-          password: SMSApi.configuration.password
+          password: SMSApi.configuration.password,
+          encoding: 'utf-8'
         }
       end
     end
