@@ -1,5 +1,9 @@
 # ClientSmsapi
 
+[![Code Climate](https://codeclimate.com/github/mentero/client_smsapi/badges/gpa.svg)](https://codeclimate.com/github/mentero/client_smsapi)
+
+[![Test Coverage](https://codeclimate.com/github/mentero/client_smsapi/badges/coverage.svg)](https://codeclimate.com/github/mentero/client_smsapi/coverage)
+
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/client_smsapi`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem
@@ -54,4 +58,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/client_smsapi.
+Bug reports and pull requests are welcome on GitHub at https://github.com/mentero/client_smsapi.
