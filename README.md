@@ -1,12 +1,10 @@
-# ClientSmsapi
+# Client SMSApi
 
 [![Code Climate](https://codeclimate.com/github/mentero/client_smsapi/badges/gpa.svg)](https://codeclimate.com/github/mentero/client_smsapi)
 
 [![Test Coverage](https://codeclimate.com/github/mentero/client_smsapi/badges/coverage.svg)](https://codeclimate.com/github/mentero/client_smsapi/coverage)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/client_smsapi`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+For details visit [SMSApi](http://www.smsapi.pl/) homepage
 
 ## Installation
 
@@ -41,20 +39,23 @@ Rails users are recommended to put this code into initializer file such as `conf
 ## Usage
 
 ```ruby
-
-message = SMSApi::SMS::Message.new(to: 48123456789, body: 'test')
+message = SMSApi::SMS::Message::Eco.new(to: 48123456789, body: 'test')
 SMSApi::SMS::Client.new.send_message!(message)
-#
-# OR
-#
-
+#<SMSApi::Response::Regular:0x007f82eca9ee78 @id=1440528348109731150, @points=0.07, @status=:ok>
 ```
 
-## Development
+`.send_message!` will raise an error in case of failure.
+There is also `.send_message` alternative available.
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake rspec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+## Test mode
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+You can use library in `test_mode`. Test mode will perform API request without sending a message and charging you.
+
+```ruby
+message = SMSApi::SMS::Message::Eco.new(to: 48123456789, body: 'test')
+SMSApi::SMS::Client.new(test_mode: true).send_message!(message)
+#<SMSApi::Response::Regular:0x007f82eca9ee78 @id=1440528348109731150, @points=0.07, @status=:ok>
+```
 
 ## Contributing
 

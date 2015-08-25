@@ -20,7 +20,7 @@ module SMSApi
 
       def send_message!(message)
         response = send_message(message)
-        fail response if response.is_a? SMSApi::Error
+        fail response if response.is_a? SMSApi::Response::Error
         response
       end
 
