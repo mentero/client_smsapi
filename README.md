@@ -1,8 +1,13 @@
 # Client SMSApi
 
-[![Code Climate](https://codeclimate.com/github/mentero/client_smsapi/badges/gpa.svg)](https://codeclimate.com/github/mentero/client_smsapi)
+[![Code Climate][1]][2] | [![Test Coverage][3]][4] | [![Gem Version][5]][6]
 
-[![Test Coverage](https://codeclimate.com/github/mentero/client_smsapi/badges/coverage.svg)](https://codeclimate.com/github/mentero/client_smsapi/coverage)
+[1]: https://codeclimate.com/github/mentero/client_smsapi/badges/gpa.svg
+[2]: https://codeclimate.com/github/mentero/client_smsapi
+[3]: https://codeclimate.com/github/mentero/client_smsapi/badges/coverage.svg
+[4]: https://codeclimate.com/github/mentero/client_smsapi/coverage
+[5]: https://badge.fury.io/rb/client_smsapi.svg
+[6]: http://badge.fury.io/rb/client_smsapi
 
 For details visit [SMSApi](http://www.smsapi.pl/) homepage
 
